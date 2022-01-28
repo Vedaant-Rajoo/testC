@@ -1,13 +1,11 @@
-#include <stdio_checked.h>
-#include <stdchecked.h>
-// CheckedC version of puzzle code 
-// sourced at : https://gist.githubusercontent.com/qwerty2323/110d63e8560453323d0cceba128f42d7/raw/6639355d51519855bcedad87180a5c31d2db9ec9/.c
-int valid(int checked[][9]:count(9),int row,int column,int guess);
-int solve(int checked[][9]:count(9));
-int find_empty_cell(int checked[][9]:count(9),_Ptr<int>,_Ptr<int>);
+#include <stdio.h>
 
-int main()
-  int puzzle checked[9][9] = {{1, 7, 4, 0, 9, 0, 6, 0, 0},
+int valid(_Array_ptr<int _Checked[9]> puzzle:count(9), int row, int column, int guess);
+int solve(_Array_ptr<int _Checked[9]> puzzle:count(9));
+int find_empty_cell(_Array_ptr<int _Checked[9]> puzzle:count(9), _Ptr<int> row, _Ptr<int> column);
+
+int main() _Checked {
+  int puzzle _Checked[9] _Checked[9] = {{1, 7, 4, 0, 9, 0, 6, 0, 0},
                       {0, 0, 0, 0, 3, 8, 1, 5, 7},
                       {5, 3, 0, 7, 0, 1, 0, 0, 4},
                       {0, 0, 7, 3, 4, 9, 8, 0, 0},
@@ -18,23 +16,25 @@ int main()
                       {0, 5, 3, 0, 8, 0, 0, 9, 6}};
   int row = 0;
   int column = 0;
+
   if (solve(puzzle)) {
     printf("\n+-----+-----+-----+\n");
-    for (int x = 0; x < 9; ++x) {
+    for (int x = 0; x < 9; ++x) _Unchecked {
       for (int y = 0; y < 9; ++y) printf("|%d", puzzle[x][y]);
       printf("|\n");
       if (x % 3 == 2) printf("\n+-----+-----+-----+\n");
     }
   }
-  else {
+  else _Unchecked {
     printf("\n\nNO SOLUTION FOUND\n\n");
   }
+
   return 0;
 }
-int valid (int puzzle checked[][9]:count(9), int row, int column, int guess) {
+
+int valid(_Array_ptr<int _Checked[9]> puzzle:count(9), int row, int column, int guess) _Checked {
   int corner_x = row / 3 * 3;
   int corner_y = column / 3 * 3;
-  
 
   for (int x = 0; x < 9; ++x) {
     if (puzzle[row][x] == guess) return 0;
@@ -44,7 +44,7 @@ int valid (int puzzle checked[][9]:count(9), int row, int column, int guess) {
   return 1;
 }
 
-int find_empty_cell(int puzzle checked[][9]:count(9), _Ptr<int> row,_Ptr<int> column) {
+int find_empty_cell(_Array_ptr<int _Checked[9]> puzzle:count(9), _Ptr<int> row, _Ptr<int> column) _Checked {
   for (int x = 0; x < 9; x++) {
     for (int y = 0; y < 9; y++) {
       if (!puzzle[x][y]) {
@@ -58,7 +58,7 @@ int find_empty_cell(int puzzle checked[][9]:count(9), _Ptr<int> row,_Ptr<int> co
   return 0;
 }
 
-int solve(int puzzle checked[][9]:count(9)) {
+int solve(_Array_ptr<int _Checked[9]> puzzle:count(9)) _Checked {
   int row;
   int column;
 
