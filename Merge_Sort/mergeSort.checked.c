@@ -3,7 +3,7 @@
 #define LENGTH  100
 
 _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end);
-void merge(_Array_ptr<int> result, _Array_ptr<int> left : bounds(left,left+0), _Array_ptr<int> right : bounds(right,right+0), int leftLen, int rightLen);
+void merge(_Array_ptr<int> result: count(LENGTH), _Array_ptr<int> left : bounds(left,left+0), _Array_ptr<int> right : bounds(right,right+0), int leftLen, int rightLen);
 void mergeSort(_Array_ptr<int> arr : count(len), int len);
 void printArray(_Array_ptr<int> arr : count(len), int len);
 
@@ -20,7 +20,7 @@ _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end)
 }
 
 /** Merge left and right into result, overwriting everything in result. */
-void merge(_Array_ptr<int> result, _Array_ptr<int> left : bounds(left,left+0), _Array_ptr<int> right : bounds(right,right+0), int leftLen, int rightLen)
+void merge(_Array_ptr<int> result: count(LENGTH), _Array_ptr<int> left : bounds(left,left+0), _Array_ptr<int> right : bounds(right,right+0), int leftLen, int rightLen)
 _Checked {
     int i = 0, j = 0;
     while(i < leftLen && j < rightLen)
@@ -51,18 +51,17 @@ _Checked {
 }
 
 // in-place merge sort
-void mergeSort(_Array_ptr<int> arr : count(len), int len)
-_Checked {
+void mergeSort (_Array_ptr<int> arr : count(len), int len)
+_Unchecked {
     if (len <= 1)
     {
         return;
     }
-    _Array_ptr<int> left = slice(arr, 0, len / 2 + 1);
+    _Array_ptr<int>left = slice(arr, 0,len/2+1);
     _Array_ptr<int> right = slice(arr, len / 2, len);
-
-    _Unchecked { printf("left: "); };
+      printf("left: "); 
     printArray(left, len / 2);
-    _Unchecked { printf("right: "); };
+     printf("right: "); 
     printArray(right, len - (len / 2));
 
     mergeSort(left, len / 2);
