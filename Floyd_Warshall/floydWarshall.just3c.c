@@ -4,9 +4,9 @@
 
 #define INF 99999
 
-void printSolution(_Array_ptr<int _Checked[V]> dist:count(V));
+void printSolution(_Array_ptr<int _Checked[V]> dist);
 
-void floydWarshall (_Array_ptr<int _Checked[V]> graph:count(V))
+void floydWarshall (_Array_ptr<int _Checked[V]> graph)
 _Checked {
 
 	int dist _Checked[V] _Checked[V];
@@ -35,7 +35,7 @@ int k;
 	}
 }
 
-void printSolution(_Array_ptr<int _Checked[V]> dist:count(V))
+void printSolution(_Array_ptr<int _Checked[V]> dist)
 _Checked {
 	_Unchecked { printf ("The following matrix shows the shortest distances"
 			" between every pair of vertices \n"); };

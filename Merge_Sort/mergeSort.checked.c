@@ -9,8 +9,8 @@ void printArray(_Array_ptr<int> arr : count(len), int len);
 
 
 _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end)
-{
-    _Array_ptr<int> result = (_Array_ptr<int>) malloc<int>((end - start) * sizeof(int));
+{   
+    _Array_ptr<int> result:count(end-start) = malloc<int>((end - start) * sizeof(int));
     int i;
     for (i = start; i < end; i++)
     _Checked {

@@ -6,8 +6,8 @@ int valid(int checked[][9]:count(9),int row,int column,int guess);
 int solve(int checked[][9]:count(9));
 int find_empty_cell(int checked[][9]:count(9),_Ptr<int>,_Ptr<int>);
 
-int main()
-  int puzzle checked[9][9] = {{1, 7, 4, 0, 9, 0, 6, 0, 0},
+int main(){
+  int puzzle _Checked[9][9] = {{1, 7, 4, 0, 9, 0, 6, 0, 0},
                       {0, 0, 0, 0, 3, 8, 1, 5, 7},
                       {5, 3, 0, 7, 0, 1, 0, 0, 4},
                       {0, 0, 7, 3, 4, 9, 8, 0, 0},

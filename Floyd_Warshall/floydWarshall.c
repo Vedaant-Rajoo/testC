@@ -59,6 +59,7 @@ int main()
 
 	// Print the solution
 	floydWarshall(graph);
+	printSolution(graph);
 	return 0;
 }
 

@@ -13,6 +13,7 @@ int rd _Checked[30] = { 0 };
   used to check whether a queen can be placed in that
     row or not*/
 int cl _Checked[30] = { 0 };
+bool solveNQ(void);
 /* A utility function to print solution */
 void printSolution(int board _Checked[N] _Checked[N])
 _Checked {
@@ -74,7 +75,7 @@ _Checked {
    Please note that there may be more than one
    solutions, this function prints one  of the
    feasible solutions.*/
-bool solveNQ()
+bool solveNQ(void)
 _Checked {
     int board _Checked[N] _Checked[N] = { { 0, 0, 0, 0 },
                         { 0, 0, 0, 0 },

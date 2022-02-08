@@ -25,7 +25,7 @@ _Checked {
                                 print(i,j-1);
 }
  
-void lcs(void)
+void lcs()
 _Checked {
                 m=strlen(x);
                 n=strlen(y);

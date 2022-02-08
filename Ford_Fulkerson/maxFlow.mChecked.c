@@ -28,7 +28,7 @@ void enqueue(int x) _Checked{
   color[x] = B;
 }
 
-int dequeue() _Checked{
+int dequeue(void) _Checked{
   int x = q[head];
   head++;
   color[x] = C;
