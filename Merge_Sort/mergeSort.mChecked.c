@@ -3,7 +3,7 @@
 #define LENGTH  100
 
 _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end): count(end-start);
-void merge(_Array_ptr<int> result: count(LENGTH), _Array_ptr<int> left : count(leftLen), _Array_ptr<int> right : count(rightLen), int leftLen, int rightLen);
+void merge(_Array_ptr<int> result: count(leftLen+rightLen), _Array_ptr<int> left : count(leftLen), _Array_ptr<int> right : count(rightLen), int leftLen, int rightLen);
 void mergeSort(_Array_ptr<int> arr : count(len), int len);
 void printArray(_Array_ptr<int> arr : count(len), int len);
 
@@ -20,7 +20,7 @@ _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end): cou
 }
 
 /** Merge left and right into result, overwriting everything in result. */
-void merge(_Array_ptr<int> result: count(LENGTH), _Array_ptr<int> left : count(leftLen), _Array_ptr<int> right : count(rightLen), int leftLen, int rightLen)
+void merge(_Array_ptr<int> result: count(leftLen+rightLen), _Array_ptr<int> left : count(leftLen), _Array_ptr<int> right : count(rightLen), int leftLen, int rightLen)
 _Checked {
     int i = 0, j = 0;
     while(i < leftLen && j < rightLen)
@@ -46,20 +46,20 @@ _Checked {
         result[i + j] = right[j];
     }
 _Unchecked{
-    free<int>(left);
+    free<int>(left) ;
     free<int>(right);
 }
 }
 
 // in-place merge sort
 void mergeSort (_Array_ptr<int> arr : count(len), int len)
-_Unchecked {
+_Checked {
     if (len <= 1)
     {
         return;
     }
-    _Array_ptr<int>left = slice(arr, 0,len/2+1);
-    _Array_ptr<int> right = slice(arr, len / 2, len);
+    _Array_ptr<int>left: count(len/2+1) = slice(arr, 0,len/2+1);
+    _Array_ptr<int> right:count(len/2) = slice(arr, len / 2, len);
       printf("left: "); 
     printArray(left, len / 2);
      printf("right: "); 
