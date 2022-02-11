@@ -6,8 +6,7 @@ int max(int a, int b) _Checked { return (a > b)? a : b; }
 int knapsack(int W, _Array_ptr<int> wt : count(n), _Array_ptr<int> val : count(n), int n)
 _Checked {
    int i, w;
-   typedef _Array_ptr<int> inResult;// = malloc <int>((n+1)*sizeof(int));
-_Array_ptr<inResult> K : count((n+1)*(W+1)) = malloc<int>((n+1)*(W+1) *sizeof(int));
+   _Array_ptr<int> K : count((n+1)*(W+1)) = malloc<int>((n+1)*(W+1)*sizeof(int));
  
    // Build table K[][] in bottom up manner
    for (i = 0; i <= n; i++)
@@ -15,15 +14,15 @@ _Array_ptr<inResult> K : count((n+1)*(W+1)) = malloc<int>((n+1)*(W+1) *sizeof(in
        for (w = 0; w <= W; w++)
        {
            if (i==0 || w==0)
-               K[i][w] = 0;
+               K[i*W+w] = 0;
            else if (wt[i-1] <= w)
-                 K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]);
+                 K[i*W+w] = max(val[i-1] + K[(i-1)*W+(w-wt[i-1])],  K[(i-1)*W+w]);
            else
-                 K[i][w] = K[i-1][w];
+                 K[i*W+w] = K[(i-1)*W+w];
        }
    }
  
-   return K[n][W];
+   return K[n*W+W];
 }
  
 int main()
