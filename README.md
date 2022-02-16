@@ -136,7 +136,7 @@ make just3c     // To compile the after running 3c for one pass (This might not 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@iamnewedia](https://twitter.com/iamnewedia) - vrajoo@purdue.edu
+Vedaant Rajoo - [@iamnewedia](https://twitter.com/iamnewedia) - vrajoo@purdue.edu
 
 Project Link: [https://github.com/Vedaant-Rajoo/testC](https://github.com/Vedaant-Rajoo/testC)
 
