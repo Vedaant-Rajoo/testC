@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
- 
+#pragma CHECKED_SCOPE on
 int i;
 int j;
 int m;
@@ -55,7 +55,7 @@ _Checked {
                                                 }
                                 }
 }
-int main()
+int main(void)
 _Checked {
                 _Unchecked { printf("Enter 1st sequence:"); };
                 _Unchecked { scanf("%s",x); };

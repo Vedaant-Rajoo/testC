@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define LENGTH  100
-
+#pragma CHECKED_SCOPE on
 _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end): count(end-start);
 void merge(_Array_ptr<int> result: count(leftLen+rightLen), _Array_ptr<int> left : count(leftLen), _Array_ptr<int> right : count(rightLen), int leftLen, int rightLen);
 void mergeSort(_Array_ptr<int> arr : count(len), int len);
@@ -21,7 +21,7 @@ _Array_ptr<int> slice(_Array_ptr<int> arr : count(end), int start, int end): cou
 
 /** Merge left and right into result, overwriting everything in result. */
 void merge(_Array_ptr<int> result: count(leftLen+rightLen), _Array_ptr<int> left : count(leftLen), _Array_ptr<int> right : count(rightLen), int leftLen, int rightLen)
-_Checked {
+ {
     int i = 0, j = 0;
     while(i < leftLen && j < rightLen)
     {
@@ -46,14 +46,14 @@ _Checked {
         result[i + j] = right[j];
     }
 _Unchecked{
-    free<int>(left) ;
-    free<int>(right);
+    free((void*)left) ;
+    free((void*)right);
 }
 }
 
 // in-place merge sort
 void mergeSort (_Array_ptr<int> arr : count(len), int len)
-_Checked {
+ {
     if (len <= 1)
     {
         return;
@@ -73,7 +73,7 @@ _Checked {
 
 /** Print an array of ints */
 void printArray(_Array_ptr<int> arr : count(len), int len)
-_Checked {
+ {
     int i = 0;
     _Unchecked { printf("["); };
     for(; i < len; i++)
@@ -83,8 +83,7 @@ _Checked {
     _Unchecked { printf("]\n"); };
 }
 
-int main(void)
-_Checked {
+int main(void) {
     int lis _Checked[LENGTH] = {48, 54, 92, 36, 13, 8, 92, 91, 53, 100, 39, 64, 58, 5, 95, 70, 21, 64, 16, 60, 7, 97, 66, 91, 43, 62, 59, 59, 13, 60, 31, 69, 15, 41, 54, 57, 71, 63, 57, 55, 95, 59, 1, 16, 92, 33, 12, 33, 67, 3, 89, 91, 62, 43, 62, 66, 11, 46, 59, 82, 72, 90, 65, 24, 18, 78, 45, 77, 58, 96, 78, 51, 64, 28, 89, 23, 4, 18, 66, 32, 39, 9, 67, 54, 98, 42, 19, 43, 42, 87, 13, 12, 57, 82, 39, 30, 8, 21, 60, 67};
     mergeSort(lis, LENGTH);
     printArray(lis, LENGTH);

@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 
+#pragma CHECKED_SCOPE on
 #define A 0
 #define B 1
 #define C 2
@@ -36,7 +37,7 @@ int dequeue(void) _Checked{
 }
 
 // Using BFS as a searching algorithm
-int bfs(int start, int target) _Checked{
+int bfs(int start, int target) {
   int u, v;
   for (u = 0; u < n; u++) {
     color[u] = A;
@@ -57,7 +58,7 @@ int bfs(int start, int target) _Checked{
 }
 
 // Applying fordfulkerson algorithm
-int fordFulkerson(int source, int sink) _Checked{
+int fordFulkerson(int source, int sink) {
   int i, j, u;
   int max_flow = 0;
   for (i = 0; i < n; i++) {
@@ -82,7 +83,7 @@ int fordFulkerson(int source, int sink) _Checked{
   return max_flow;
 }
 
-int main() _Checked{
+int main(void) {
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
       capacity[i][j] = 0;

@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 10
- 
+#pragma CHECKED_SCOPE on
+
+
 //method to input elements in the array
-void inputElement(int m _Checked[MAX] _Checked[MAX], int r, int c)_Checked {
+void inputElement(int m _Checked[MAX] _Checked[MAX], int r, int c) {
     for(int i=0; i<r ; i++){
         for(int j=0; j<c; j++){
             _Unchecked { printf("Enter element into row %d & column %d \n",i+1,j+1); };
@@ -13,7 +15,7 @@ void inputElement(int m _Checked[MAX] _Checked[MAX], int r, int c)_Checked {
 }
  
 //maethod to display matrix
-void display(int m _Checked[MAX] _Checked[MAX], int r, int c)_Checked {
+void display(int m _Checked[MAX] _Checked[MAX], int r, int c) {
     for(int i=0; i<r; i++){
         for(int j=0; j<c; j++)_Unchecked {
             printf("%d \t",m[i][j]);
@@ -22,8 +24,8 @@ void display(int m _Checked[MAX] _Checked[MAX], int r, int c)_Checked {
     }
 }
  
-int main()
-_Checked {
+int main(void)
+ {
     //order of the two matrix
     int r1, r2, c1, c2;
     

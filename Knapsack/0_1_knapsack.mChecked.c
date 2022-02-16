@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
  
+ #pragma CHECKED_SCOPE on
 int max(int a, int b) _Checked{ return (a > b)? a : b; }
 // Returns the maximum value that can be put in a knapsack of capacity W
 int knapsack(int W, int wt _Checked[]:count(n), int val _Checked[]:count(n), int n)
@@ -24,12 +25,14 @@ int knapsack(int W, int wt _Checked[]:count(n), int val _Checked[]:count(n), int
    return K[n*W+W];
 }
  
-int main()
+int main(void)
 {
-    int val[] = {60, 100, 120};
-    int wt[] = {10, 20, 30};
+    int val _Checked[] = {60, 100, 120};
+    int wt _Checked[] = {10, 20, 30};
     int  W = 50;
     int n = sizeof(val)/sizeof(val[0]);
+    _Unchecked{
     printf("\nValue = %d", knapsack(W, wt, val, n));
+}
     return 0;
 }

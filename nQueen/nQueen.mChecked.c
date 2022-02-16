@@ -1,6 +1,7 @@
 #define N 4
 #include <stdbool.h>
 #include <stdio.h>
+#pragma CHECKED_SCOPE on
 /* ld is an array where its indices indicate row-col+N-1
  (N-1) is for shifting the difference to store negative 
  indices */
@@ -16,7 +17,7 @@ int cl _Checked[30] = { 0 };
 bool solveNQ(void);
 /* A utility function to print solution */
 void printSolution(int board _Checked[N] _Checked[N])
-_Checked {
+ {
     for (int i = 0; i < N; i++) _Unchecked {
         for (int j = 0; j < N; j++)
             printf(" %d ", board[i][j]);
@@ -27,7 +28,7 @@ _Checked {
 /* A recursive utility function to solve N
    Queen problem */
 bool solveNQUtil(int board _Checked[N] _Checked[N], int col)
-_Checked {
+ {
     /* base case: If all queens are placed
       then return true */
     if (col >= N)
@@ -76,7 +77,7 @@ _Checked {
    solutions, this function prints one  of the
    feasible solutions.*/
 bool solveNQ(void)
-_Checked {
+ {
     int board _Checked[N] _Checked[N] = { { 0, 0, 0, 0 },
                         { 0, 0, 0, 0 },
                         { 0, 0, 0, 0 },
@@ -92,8 +93,8 @@ _Checked {
 }
   
 // driver program to test above function
-int main()
-_Checked {
+int main(void)
+ {
     solveNQ();
     return 0;
 }

@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+
+#pragma CHECKED_SCOPE on
 // Function to sort the numbers using pointers
 void sort(int n, _Array_ptr<int> ptr : count(n))
 {
@@ -25,7 +27,7 @@ void sort(int n, _Array_ptr<int> ptr : count(n))
 }
 
 // Driver code
-int main()
+int main(void)
 _Checked {
 	int n = 5;
 	int arr _Checked[] = { 0, 23, 14, 12, 9 };

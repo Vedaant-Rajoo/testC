@@ -1,12 +1,12 @@
 #include<stdio.h>
  
 #define MAX 30
- 
+#pragma CHECKED_SCOPE on
 typedef struct edge
 {
 int u,v,w;
 }edge;
- 
+
 typedef struct edgelist
 {
 edge data _Checked[MAX];
@@ -19,13 +19,13 @@ int G _Checked[MAX] _Checked[MAX];
 int n;
 edgelist spanlist;
  
-void kruskal();
+void kruskal(void);
 int find(_Array_ptr<int> belongs : count(30), int vertexno);
 void union1(_Array_ptr<int> belongs : count(30), int c1, int c2);
-void sort();
-void print();
+void sort(void);
+void print(void);
  
-int main()
+int main(void)
 {
 int i,j,total_cost;
 printf("\nEnter number of vertices:");
@@ -38,7 +38,7 @@ kruskal();
 print();
 }
  
-void kruskal()
+void kruskal(void)
 {
 int belongs _Checked[MAX];
 int i;
@@ -59,7 +59,7 @@ elist.n++;
 }
 }
  
-sort();
+void sort(void);
 for(i=0;i<n;i++)
 belongs[i]=i;
 spanlist.n=0;
@@ -77,20 +77,20 @@ union1(belongs,cno1,cno2);
 }
  
 int find(_Array_ptr<int> belongs : count(30), int vertexno)
-_Checked {
+ {
 return(belongs[vertexno]);
 }
  
 void union1(_Array_ptr<int> belongs : count(30), int c1, int c2)
-_Checked {
+ {
 int i;
 for(i=0;i<n;i++)
 if(belongs[i]==c2)
 belongs[i]=c1;
 }
  
-void sort()
-_Checked {
+void sort(void)
+ {
 int i,j;
 edge temp;
 for(i=1;i<elist.n;i++)
@@ -103,8 +103,8 @@ elist.data[j+1]=temp;
 }
 }
  
-void print()
-_Checked {
+void print(void)
+ {
 int i,cost=0;
 for(i=0;i<spanlist.n;i++)
 {

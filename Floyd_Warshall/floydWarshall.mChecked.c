@@ -4,6 +4,7 @@
 
 #define INF 99999
 
+#pragma CHECKED_SCOPE on
 void printSolution(_Array_ptr<int _Checked[V]> dist:count(V));
 
 void floydWarshall (_Array_ptr<int _Checked[V]> graph:count(V))
@@ -52,7 +53,7 @@ _Checked {
 	}
 }
 
-int main()
+int main(void)
 _Checked {
 	int graph _Checked[V] _Checked[V] = { {0, 5, INF, 10},
 						{INF, 0, 3, INF},
