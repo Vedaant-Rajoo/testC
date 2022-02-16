@@ -1,12 +1,14 @@
 #include <stdio_checked.h>
 #include <stdchecked.h>
+
+#pragma CHECKED_SCOPE on
 // CheckedC version of puzzle code 
 // sourced at : https://gist.githubusercontent.com/qwerty2323/110d63e8560453323d0cceba128f42d7/raw/6639355d51519855bcedad87180a5c31d2db9ec9/.c
 int valid(int checked[][9]:count(9),int row,int column,int guess);
 int solve(int checked[][9]:count(9));
 int find_empty_cell(int checked[][9]:count(9),_Ptr<int>,_Ptr<int>);
 
-int main(){
+int main(void){
   int puzzle _Checked[9][9] = {{1, 7, 4, 0, 9, 0, 6, 0, 0},
                       {0, 0, 0, 0, 3, 8, 1, 5, 7},
                       {5, 3, 0, 7, 0, 1, 0, 0, 4},
