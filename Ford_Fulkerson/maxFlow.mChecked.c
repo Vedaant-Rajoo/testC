@@ -16,20 +16,20 @@ int flow _Checked[MAX_NODES]_Checked[MAX_NODES];
 int color _Checked[MAX_NODES];
 int pred _Checked[MAX_NODES];
 
-int _Checked min(int x, int y) {
+int  min(int x, int y) {
   return x < y ? x : y;
 }
 
 int head, tail;
 int q _Checked[MAX_NODES + 2];
 
-void enqueue(int x) _Checked{
+void enqueue(int x) {
   q[tail] = x;
   tail++;
   color[x] = B;
 }
 
-int dequeue(void) _Checked{
+int dequeue(void) {
   int x = q[head];
   head++;
   color[x] = C;
@@ -102,5 +102,7 @@ int main(void) {
   capacity[4][3] = 4;
 
   int s = 0, t = 5;
+  _Unchecked{
   printf("Max Flow: %d\n", fordFulkerson(s, t));
+  }
 }
